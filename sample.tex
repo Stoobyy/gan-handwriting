@@ -1,0 +1,1208 @@
+\documentclass[12pt,a4paper,titlepage]{report}
+\usepackage{graphicx}
+\usepackage[left=2.8cm, right=2.2cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{latexsym}		% to get LASY symbols
+\usepackage{epsfig}			% to insert PostScript figures
+\usepackage{eufrak}
+\usepackage{type1cm}
+\usepackage{newsec}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{acro}
+
+\definecolor{customgreen}{rgb}{0,0.6,0}
+\definecolor{customgray}{rgb}{0.5,0.5,0.5}
+\definecolor{custommauve}{rgb}{0.6,0,0.8}
+\lstdefinelanguage{HTML}{
+	sensitive=true,
+	keywords={},
+	otherkeywords={<, >, /},
+	morecomment=[s]{<!--}{-->},
+	morestring=[b]"
+}
+
+
+\lstset{ 
+	basicstyle=\small,        % the size of the fonts that are used for the code
+	breaklines=true,                 % sets automatic line breaking
+	commentstyle=\color{customgreen},    % comment style
+	firstnumber=1,                % start line enumeration with line 1000
+	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=10pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{customgray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{custommauve},     % string literal style
+	tabsize=2,	                   % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+\titleformat{\chapter}[display]
+{\normalfont\Large\bfseries\centering}{\chaptertitlename\
+	\thechapter}{25pt}{\Large}
+\titleformat{\section}{\normalfont\bfseries}{\noindent\thesection}{20pt}{}
+\titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{15pt}{\small}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+
+\begin{document}
+	\titlepage
+	\thispagestyle{empty}
+	\begin{center}
+		\includegraphics[scale=0.3]{logo1.png}\\[0.5cm]
+		\large \textit{Mini Project Report On}\\[0.6cm]
+		\Large \textbf{Real-Time Lightweight On Device Detection of AI-Generated Voice Calls }\\[0.6cm]
+		\textit{Submitted in partial fulfillment of the
+			requirements for the award of the degree of}\\[0.6cm]
+		{\huge {$\mathfrak {Bachelor\; of\; Technology}$}}\\[.2cm]
+		%{\Large {$\mathfrak {In}$}}\\[.5cm]
+		%{\Large {$\mathfrak {Computer\; Science\; \&\; Engineering}$}}\\[2cm]
+		\textit{in}\\[.2cm]
+		{\Large \bf \itshape{{Computer\; Science\; \&\; Engineering}}}\\[0.4cm]
+		\large \bfseries{By}\\[.4cm]
+		\large \bfseries{ Abraham Thomas Edakkara(U2303014) }\\[0.2cm]
+		\large \bfseries{ Amrith Saras (U2303035) }\\[0.2cm]
+		\large \bfseries{ Annabel Marianne Victor(U2303050) }\\[0.2cm]
+		\large \bfseries{ Ayyappadas S(U2303067) }\\[0.6cm]
+		\large \bfseries{Under the guidance of }\\[0.75cm]
+		\large \bfseries{Mr Sebin Jose}\\[0.75cm]
+%		\includegraphics[width=8.0cm]{logo (1).jpg}\\[0.5cm]
+		\large \textbf{Department of Computer\; Science\; and Engineering}\\
+		\large \textbf{Rajagiri School of Engineering \&\ Technology (Autonomous)}\\
+		\small \bfseries{(Affiliated to APJ Abdul Kalam Technological University)}\\
+		\large \textbf{Rajagiri Valley, Kakkanad, Kochi, 682039}\\
+		\large \bfseries{March 2026}
+	\end{center}
+	
+	\newpage
+	\thispagestyle{empty}
+	\begin{center}
+	%	\textbf {DEPARTMENT OF COMPUTER SCIENCE \&\ ENGINEERING}\\
+	%	\small \textbf{RAJAGIRI SCHOOL OF ENGINEERING \&\ TECHNOLOGY (AUTONOMOUS)}\\
+	
+	%	\small \textbf{RAJAGIRI VALLEY, KAKKANAD, KOCHI, 682039}\\
+     %   \small \bfseries{(Affiliated to APJ Abdul Kalam Technological University)}\\[0.5cm]
+		%\begin{figure}[htbp]
+		%	\centering
+			%\includegraphics[scale=0.40]{logo (1).jpg}
+         %   \includegraphics[width=8.0cm]{logo (1).jpg}\\[0.5cm]
+		%\end{figure}
+		\large \bfseries{\huge{CERTIFICATE}}\\[5cm]
+	\end{center}
+	
+	\renewcommand{\baselinestretch}{1.2}\normalsize
+	
+	\emph{This is to certify that the mini project report entitled \textbf{”Real-Time Lightweight On Device Detection of AI-Generated Voice Calls”} is a bonafide record of the work done by \textbf{Abraham Thomas Edakkara(U2303014)}, \textbf{Amrith Saras  (U2303035)}, \textbf{Annabel Marianne Victor(U2303050)}, \textbf{Ayyappadas S (U2303067)}, submitted to the APJ Abdul Kalam Technological University in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology (B. Tech.) in Computer Science and Engineering during the academic year 2025-2026.}\\[2.5cm]
+	
+\begin{flushleft}
+	
+	
+	\begin{longtable}{p{10.3cm} p{8cm} p{5.25cm}}
+	%	\small\textbf{Name of Guide}    &\small\textbf{Name of Coordinator} \\
+		{Mr Sebin Jose}& {Dr Mary Priya Sebastian}\\
+		{Asst. Professor}& {Associate Professor}\\
+        {Project Guide}& {Project Coordinator}\\
+		{Dept. of CSE}&  {Dept. of CSE}\\
+		{RSET} ~&{RSET} \\
+		
+	\end{longtable}
+\end{flushleft}
+	
+\begin{center}
+	%\small\textbf{Name of HoD}\\
+	{Dr. Preetha K.G}\\
+	{Professor and Hod}\\
+	{Dept. of CSE}\\
+	{RSET}
+\end{center}	
+
+	
+	
+
+    
+	
+	\renewcommand{\baselinestretch}{1.5}\normalsize
+	\newpage
+	%\renewcommand\abstractname{ACKNOWLEDGEMENTS}
+    \chapter*{ACKNOWLEDGEMENTS}
+	%\begin{abstract}
+		\pagenumbering{roman}
+		\setcounter{page}{1}
+		\addcontentsline{toc}{chapter}{Acknowledgements}
+		\vspace{1.5cm}
+		%\begin{spacing}{}
+		\paragraph\ We wish to express our sincere gratitude towards \textbf{Rev.Dr. Jaison Paul Mulerikkal} CMI, Principal of RSET, and \textbf{Dr. Preetha K.G}., Head of the Department of Computer Science and Engineering for providing us with the opportunity to undertake our mini project, "Real-Time Lightweight On Device Detection of AI-Generated Voice Calls".
+		\paragraph\ We are highly indebted to our project coordinator, \textbf{Dr. Mary Priya Sebastian}, Associate Professor, Department of Computer Science and Engineering for her valuable support.
+		
+		\paragraph\ It is indeed our pleasure and a moment of satisfaction for us to express our sincere
+		gratitude to our project guide \textbf{Mr Sebin Jose} for his patience and all the priceless advice and wisdom he has shared with us.
+		\paragraph\ Last but not the least, we would like to express our sincere gratitude towards all other teachers and friends for their continuous support and constructive ideas.
+		
+		%\end{spacing}
+		\begin{flushright}
+			\textbf{Abraham Thomas Edakkara(U2303014)}\\
+			\textbf{Amrith Saras(U2303035)}\\
+			\textbf{Annabel Marianne Victor(U2303050)}\\
+			\textbf{Ayyappadas S(U2303067)}
+		\end{flushright}
+		
+		
+	%\end{abstract}
+   
+	
+	\newpage
+ 
+	\renewcommand{\baselinestretch}{1.5}\normalsize
+	%\thispagestyle{empty}
+	%\renewcommand\abstractname{ABSTRACT}
+    \chapter*{Abstract}
+	%\begin{abstract}
+	%	\pagenumbering{roman}
+	%	\setcounter{page}{3}
+		\addcontentsline{toc}{chapter}{Abstract}
+		\vspace{1.5cm}
+		\paragraph\ \ \ \ Artificial intelligence based speech synthesis systems have advanced significantly in recent years, enabling the generation of highly realistic synthetic voices. While these technologies provide many beneficial applications such as virtual assistants and automated communication systems, they also introduce serious security risks. AI generated voices can be used in impersonation attacks, fraudulent phone calls and social engineering scams where attackers imitate trusted individuals. Detecting such synthetic speech during live communication has therefore become an important cybersecurity challenge.
+
+Existing AI voice detection solutions often rely on large cloud based machine learning models that require significant computational resources and internet connectivity. These approaches introduce latency and raise privacy concerns since user audio must be transmitted to external servers for analysis. Furthermore, many existing detection systems are designed for offline analysis and are not optimized for real time detection during active calls.
+
+This project proposes a lightweight real time system capable of detecting AI generated voices directly on the user device. The system continuously monitors active voice calls, captures audio streams and processes them in small frames for analysis. Acoustic features including Mel Spectrograms and Linear Frequency Cepstral Coefficients (LFCC) are extracted from the speech signal. A Convolutional Neural Network (CNN) learns discriminative patterns from Mel Spectrogram features while a Gaussian Mixture Model (GMM) statistically models LFCC features to capture characteristics of synthetic speech.
+
+To improve reliability and reduce prediction noise, a hybrid decision engine aggregates predictions across multiple frames using a sliding window mechanism. By combining CNN and GMM outputs, the system achieves more robust detection compared to single model approaches. The entire detection pipeline operates locally on the device, ensuring low latency, improved privacy and efficient performance.
+
+The final detection results are presented through a graphical interface that provides real time classification and warning notifications when AI generated voices are detected, thereby helping protect users from emerging deepfake voice scams.
+
+
+		
+		%\end{spacing}
+	%\end{abstract}
+	
+	
+	\newpage
+	\normalsize{}
+	
+	%\pagenumbering{roman}
+	%\setcounter{page}{4}
+	%\begin{spacing}{}
+	\tableofcontents
+	%\end{spacing}
+	% \thispagestyle{empty}
+	\newpage
+	
+
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List of Figures}
+	% \thispagestyle{empty}
+	\newpage
+	
+
+   % \pagenumbering{roman}
+	%\setcounter{page}{9}
+	\listoftables
+	\addcontentsline{toc}{chapter}{List of Tables}
+%	\addcontentsline{toc}{chapter}{List of Abbreviations}
+%	\listof{Abbreviations}
+	% \thispagestyle{empty}
+    \newpage
+    
+    \chapter*{List of Abbreviations}
+    \addcontentsline{toc}{chapter}{List of Abbreviations}
+    
+    \begin{longtable}{p{3cm} p{10cm}}
+    AI & Artificial Intelligence \\
+    API & Application Programming Interface \\
+    AUC & Area Under the Curve \\
+    CNN & Convolutional Neural Network \\
+    DCT & Discrete Cosine Transform \\
+    DNN & Deep Neural Network \\
+    DSP & Digital Signal Processing \\
+    EER & Equal Error Rate \\
+    EM & Expectation-Maximization \\
+    FFT & Fast Fourier Transform \\
+    GMM & Gaussian Mixture Model \\
+    GUI & Graphical User Interface \\
+    LFCC & Linear Frequency Cepstral Coefficients \\
+    MFCC & Mel Frequency Cepstral Coefficients \\
+    ML & Machine Learning \\
+    ReLU & Rectified Linear Unit \\
+    RMS & Root Mean Square \\
+    SNR & Signal-to-Noise Ratio \\
+    STFT & Short-Time Fourier Transform \\
+    TFLite & TensorFlow Lite \\
+    TTS & Text-to-Speech \\
+    UI & User Interface \\
+    VoIP & Voice over Internet Protocol \\
+    WASAPI & Windows Audio Session Application Programming Interface \\
+    \end{longtable}
+    
+    \newpage
+    
+	\cleardoublepage
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	%\begin{spacing}{}
+	\chapter{Introduction}
+	
+	\section{Background}
+	
+	The rapid advancement of artificial intelligence has led to the development of highly sophisticated speech synthesis systems capable of generating human-like voice output that is nearly indistinguishable from natural speech. Technologies such as text-to-speech (TTS) engines, voice cloning frameworks, and neural vocoders have made it possible to replicate a person's voice with only a few seconds of reference audio. While these technologies have beneficial applications in accessibility, entertainment, and automated communication, they also introduce significant cybersecurity risks. Attackers can exploit AI-generated voices to impersonate trusted individuals during phone calls, enabling social engineering attacks, financial fraud, and identity theft.
+	
+	Voice over Internet Protocol (VoIP) platforms such as WhatsApp, Zoom, Microsoft Teams, and Discord have become the dominant medium for personal and professional communication. The prevalence of these platforms, combined with the accessibility of AI voice generation tools, has created a new category of threat known as deepfake voice scams. According to industry reports, losses from voice-based fraud have increased substantially in recent years, with AI-generated voices being used to deceive victims into transferring funds or revealing sensitive information. The detection of such synthetic speech in real time during active voice calls has therefore become a pressing cybersecurity challenge that demands practical, deployable solutions.
+	
+	
+	\section{Problem Definition}
+	
+	Current AI voice detection methods predominantly rely on large cloud-based models that introduce network latency, require internet connectivity, and raise privacy concerns by transmitting user audio to external servers. There is a need for a lightweight, on-device system that can detect AI-generated voices in real time during active VoIP calls without relying on cloud infrastructure, thereby ensuring low latency, user privacy, and efficient resource utilization.
+	
+	
+	\section{Scope and Motivation}
+	
+	The scope of this project encompasses the design, development, and evaluation of a complete end-to-end system for real-time detection of AI-generated voices during live VoIP calls. The system operates entirely on the user's local device, capturing audio from active calls using Windows Audio Session API (WASAPI) loopback, extracting acoustic features, performing inference using dual machine learning models, and presenting results through a graphical user interface. The detection pipeline covers the entire workflow from VoIP call detection and audio capture through feature extraction, model inference, ensemble decision-making, and user notification.
+	
+	The motivation for this work arises from the growing prevalence of deepfake voice scams that exploit the trust inherent in voice communication. Existing detection solutions are either too computationally expensive for real-time use, require cloud connectivity that compromises user privacy, or are designed only for offline forensic analysis. The availability of consumer-grade hardware capable of running lightweight neural networks in real time, combined with the TensorFlow Lite framework for model optimization, creates an opportunity to build a practical, privacy-preserving detection tool. This project aims to bridge the gap between academic deepfake detection research and real-world deployable solutions that can protect everyday users.
+	
+	
+	\begin{table}[!h]
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Feature} & \textbf{Cloud-Based Systems} & \textbf{Proposed System} \\
+				\hline
+				Latency & High (network dependent) & Low ($<$100ms) \\
+				\hline
+				Privacy & Audio sent to servers & Fully on-device \\
+				\hline
+				Connectivity & Internet required & Offline capable \\
+				\hline
+				Model Size & Hundreds of MBs & $<$400KB (TFLite) \\
+				\hline
+				Real-Time & Often post-hoc analysis & Live call detection \\
+				\hline
+			\end{tabular}
+			\caption{Comparison of cloud-based vs proposed on-device detection}
+		\end{center}
+	\end{table}
+	
+	\section{Objectives}
+	
+	\begin{enumerate}
+		\item To design and implement a real-time audio capture system that monitors active VoIP calls using WASAPI loopback recording on Windows.
+		\item To develop a feature extraction pipeline that computes Mel Spectrograms for CNN-based classification and Linear Frequency Cepstral Coefficients (LFCC) for GMM-based classification.
+		\item To train a lightweight Convolutional Neural Network (CNN) using depthwise separable convolutions that achieves high detection accuracy with minimal computational overhead.
+		\item To train a Gaussian Mixture Model (GMM) on LFCC features to provide a complementary statistical classification approach.
+		\item To implement a hybrid decision engine that aggregates CNN and GMM predictions across multiple audio frames using a sliding window mechanism for robust classification.
+		\item To deploy the trained hybrid model in TensorFlow Lite format for optimized on-device inference and present detection results through a real-time graphical user interface with visual alerts.
+        \item To enable community-driven reporting of detected AI scam calls to build a shared database of suspicious callers.
+	\end{enumerate}
+	
+	\section{Challenges}
+	
+	The primary challenge is achieving reliable detection accuracy under the severe audio degradation introduced by VoIP codecs, particularly the Opus codec used by WhatsApp and other popular platforms. Codec compression at low bitrates (16--48 kbps) removes high-frequency details that are often the distinguishing markers of AI-generated speech. Additionally, maintaining real-time performance (under 100ms per inference window) on consumer hardware while running dual models in parallel requires careful optimization of the feature extraction and inference pipelines.
+	
+	
+	\section{Assumptions}
+	
+	\begin{enumerate}
+		\item The system operates on a Windows 10/11 device with access to the WASAPI loopback audio interface for capturing system audio output.
+		\item VoIP applications produce audio sessions that can be detected through the Windows audio session API or microphone activity monitoring.
+		\item The incoming speech signal contains sufficient non-silent segments (at least 60\% non-silence) for meaningful feature extraction and classification.
+	\end{enumerate}
+	
+	
+	\section{Societal / Industrial Relevance}
+	
+	This project directly addresses the growing threat of AI-powered voice fraud, which impacts individuals, financial institutions, and organizations worldwide. For society, the system provides a free, privacy-preserving tool that can protect vulnerable populations --- particularly elderly individuals who are disproportionately targeted by phone scams --- from deepfake voice attacks. The on-device nature of the solution ensures that personal conversations are never transmitted to third-party servers, respecting user privacy while providing security.
+	
+	From an industrial perspective, the lightweight architecture and TFLite deployment model make the system suitable for integration into VoIP applications, call centers, and enterprise communication platforms. Financial institutions and customer service providers can deploy similar technology to verify the authenticity of voice communications, reducing fraud losses. The community-based flagging system, which uses hashed phone numbers and a cloud database for crowd-sourced threat intelligence, demonstrates a scalable approach to collective defence against voice-based attacks.
+	
+	\section{Organization of the Report}
+	
+	The remainder of this report is organized as follows. Chapter 2 presents the Software Requirements Specification, detailing the functional and non-functional requirements of the system. Chapter 3 describes the system architecture and design, including the overall system overview, architectural diagrams, dataset description, proposed methodology, user interface design, database design, implementation strategies, module division, and work schedule. Chapter 4 presents the results and discussions, covering testing outcomes, quantitative performance metrics, graphical analysis, and a summary discussion. Chapter 5 concludes the report with a summary of findings and directions for future work.
+	
+	
+	
+	
+	
+	
+	
+	\chapter{Software Requirements Specification}
+	
+	\section{Introduction}
+	\paragraph\ The Software Requirements Specification (SRS) document describes the functional and non-functional requirements of the Real-Time Lightweight On-Device Detection of AI-Generated Voice Calls system. The system is a desktop application targeting Windows 10/11 that monitors active VoIP calls, captures audio in real time, and classifies incoming speech as human or AI-generated using an ensemble of CNN and GMM models. The intended users are individuals who wish to protect themselves from deepfake voice scams during everyday communication.
+	
+	\subsection{Purpose}
+	The purpose of this document is to provide a detailed description of the requirements for the AI voice detection system. It specifies the software interfaces, functional capabilities, performance constraints, and design requirements that guide the development process.
+	
+	\subsection{Product Scope}
+	The system, named \textbf{Das-Detects}, is a standalone Windows desktop application that:
+	\begin{itemize}
+		\item Automatically detects active VoIP calls (WhatsApp, Zoom, Teams, Discord, etc.)
+		\item Captures incoming audio via WASAPI loopback recording
+		\item Extracts Mel Spectrogram and LFCC features from audio frames
+		\item Classifies speech using a TFLite CNN model and a GMM model
+		\item Aggregates predictions using a sliding window decision engine
+		\item Displays real-time classification results with visual alerts
+		\item Optionally queries a community cloud database for flagged caller numbers
+	\end{itemize}
+	
+	\subsection{Definitions and Acronyms}
+	Refer to the List of Abbreviations provided at the beginning of this report.
+	
+	
+	\section{Overall Description}
+	
+	\subsection{Product Perspective}
+	\paragraph\ Das-Detects is an independent desktop application that operates alongside existing VoIP software. It does not modify or intercept network traffic; instead, it passively captures the audio output of the operating system using the WASAPI loopback interface. The system architecture is modular, comprising separate components for call detection, audio recording, feature extraction, model inference, decision aggregation, and user interface rendering.
+	
+	\subsection{Product Functions}
+	The major functions of the system are:
+	\begin{enumerate}
+		\item \textbf{VoIP Call Detection}: Continuously monitors Windows audio sessions and microphone activity to detect when a VoIP call is active.
+		\item \textbf{Audio Capture}: Records system audio output at 48 kHz using loopback recording, converting to 16 kHz mono for processing.
+		\item \textbf{Feature Extraction}: Computes 60-band Mel Spectrograms (for CNN) and 20-coefficient LFCC features (for GMM) from 2.5-second audio windows.
+		\item \textbf{CNN Inference}: Runs a depthwise separable CNN via TensorFlow Lite to produce an AI probability score.
+		\item \textbf{GMM Inference}: Scores audio against trained human and AI Gaussian Mixture Models to produce a complementary probability score.
+		\item \textbf{Ensemble Decision}: Combines CNN (60\% weight) and GMM (40\% weight) scores with a 5-frame sliding window for smoothed classification.
+		\item \textbf{User Interface}: Displays real-time status, confidence scores, waveform visualization, and warning notifications.
+		\item \textbf{Community Flagging}: Optionally checks caller numbers (hashed with SHA-256) against a Supabase cloud database of reported scam numbers.
+	\end{enumerate}
+	
+	\subsection{User Characteristics}
+	The target users are general computer users with no specialized technical knowledge. The system is designed to be fully automatic --- requiring no manual configuration. Users simply launch the application, and it begins monitoring for calls.
+	
+	\subsection{Constraints}
+	\begin{itemize}
+		\item The system requires Windows 10 or later with WASAPI support.
+		\item Audio capture depends on the VoIP application producing audio through the default audio output device.
+		\item The system cannot capture audio from end-to-end encrypted calls at the network layer; it relies on system audio output.
+		\item Internet connectivity is required only for the optional community flagging feature.
+	\end{itemize}
+	
+	\subsection{Assumptions and Dependencies}
+	\begin{itemize}
+		\item Python 3.10 or later is installed on the system.
+		\item Required libraries (TensorFlow, librosa, soundcard, pycaw, customtkinter) are installed.
+		\item The operating system permits loopback audio capture and microphone access monitoring.
+	\end{itemize}
+	
+	\section{External Interface Requirements}
+	
+	\subsection{User Interfaces}
+	\paragraph\ The system provides a graphical user interface built with the \texttt{customtkinter} framework featuring a dark-mode design. The main window displays: (a) a call status banner indicating whether a VoIP call is detected, (b) an animated waveform visualization showing audio activity, (c) a large status label showing the current classification (HUMAN, SUSPICIOUS, or AI GENERATED), (d) a confidence percentage with color-coded display, (e) a 5-element buffer indicator showing per-frame classification history, and (f) threat warning banners when community-flagged numbers are detected.
+	
+	\subsection{Hardware Interfaces}
+	\paragraph\ The system interfaces with the default audio output device through the WASAPI loopback API provided by the Windows operating system. No specialized hardware is required. The system is designed to run on standard consumer laptops and desktops with a minimum of 4 GB RAM and a multi-core CPU.
+	
+	\subsection{Software Interfaces}
+	\begin{itemize}
+		\item \textbf{Windows WASAPI}: For audio session enumeration and loopback recording.
+		\item \textbf{TensorFlow Lite Runtime}: For CNN model inference.
+		\item \textbf{scikit-learn}: For GMM model loading and scoring.
+		\item \textbf{Supabase REST API}: For community blocklist queries (optional).
+		\item \textbf{librosa}: For audio resampling and feature computation.
+	\end{itemize}
+	
+	\subsection{Communication Interfaces}
+	\paragraph\ The only network communication occurs when the optional community flagging feature is enabled, which makes HTTPS REST API calls to a Supabase PostgreSQL backend. Phone numbers are hashed with SHA-256 before transmission to preserve privacy.
+	
+	\section{System Features}
+	
+	\subsection{FR-01: Automatic VoIP Call Detection}
+	\paragraph\ The system shall automatically detect when a VoIP call is active by monitoring Windows audio sessions for known VoIP process keywords (WhatsApp, Zoom, Teams, Discord, Telegram, Signal, Skype, Viber, Slack, WebEx) and checking microphone activity status. The system shall use hysteresis logic to prevent false triggering from voice message playback.
+	
+	\subsection{FR-02: Real-Time Audio Capture}
+	\paragraph\ Upon detecting an active call, the system shall begin recording audio from the default speaker device using WASAPI loopback at the system sample rate (48 kHz). Audio shall be captured in 3-second frames, converted to mono, and placed in a thread-safe queue with a maximum capacity of 20 frames.
+	
+	\subsection{FR-03: Audio Preprocessing}
+	\paragraph\ Each captured frame shall undergo preprocessing including silence detection (frames with $>$40\% silence are discarded), resampling from 48 kHz to 16 kHz, trimming or padding to a fixed 2.5-second window (40,000 samples), and RMS normalization to a target level of $-$20 dB.
+	
+	\subsection{FR-04: Dual-Model Inference}
+	\paragraph\ The system shall perform inference using two parallel classification models: (a) a CNN operating on Mel Spectrogram features via TensorFlow Lite, and (b) a GMM operating on LFCC features. Each model shall independently produce a probability score indicating the likelihood that the audio is AI-generated.
+	
+	\subsection{FR-05: Ensemble Decision Engine}
+	\paragraph\ The system shall combine CNN and GMM probability scores using weighted averaging (CNN: 60\%, GMM: 40\%) and maintain a 5-frame sliding window buffer. The smoothed average score shall be classified as: Human ($<$0.40), Suspicious (0.40--0.70), or AI Generated ($\geq$0.70). The system shall generate a one-shot notification upon the first detection of AI-generated speech after the buffer is filled.
+	
+	\subsection{FR-06: User Interface Display}
+	\paragraph\ The system shall display real-time classification results through a GUI that includes animated waveform visualization, color-coded confidence display (green for human, yellow for suspicious, red for AI), a per-frame buffer indicator, and warning banners for detected threats.
+	
+	\section{Other Nonfunctional Requirements}
+	
+	\subsection{Performance Requirements}
+	\begin{itemize}
+		\item The CNN inference shall complete in under 50 ms per 2.5-second audio window.
+		\item The GMM inference shall complete in under 25 ms per window.
+		\item The total end-to-end latency from audio capture to UI update shall not exceed 100 ms.
+		\item The TFLite model file shall not exceed 400 KB in size.
+	\end{itemize}
+	
+	\subsection{Safety and Security Requirements}
+	\begin{itemize}
+		\item All audio processing shall occur locally on the device; no audio data shall be transmitted over the network.
+		\item Caller phone numbers shall be hashed using SHA-256 before any cloud database interaction.
+		\item The system shall not store or log raw audio recordings.
+	\end{itemize}
+	
+	\subsection{Software Quality Attributes}
+	\begin{itemize}
+		\item \textbf{Reliability}: The system shall maintain classification accuracy above 95\% on VoIP-degraded audio.
+		\item \textbf{Usability}: The system shall operate without requiring any user configuration or manual intervention.
+		\item \textbf{Portability}: The core detection pipeline shall be designed for future adaptation to mobile platforms via TFLite.
+		\item \textbf{Maintainability}: The codebase shall follow a modular architecture with clearly separated components for each stage of the pipeline.
+	\end{itemize}
+	
+
+	
+	
+	
+	\chapter{System Architecture and Design}
+	\section{System Overview }
+	\paragraph\ 
+	The Das-Detects system is an end-to-end pipeline for real-time detection of AI-generated voices during active VoIP calls. The system operates as a background monitoring service that automatically activates when a VoIP call is detected, processes audio in fixed-length windows, and presents classification results through a real-time graphical interface.
+	
+	The overall data flow proceeds as follows: (1) the VoIP Monitor module continuously polls Windows audio sessions to detect active calls; (2) upon detection, the Audio Recorder module captures system audio output via WASAPI loopback at 48 kHz; (3) captured frames are preprocessed (silence filtering, resampling to 16 kHz, normalization); (4) two parallel feature extraction pipelines compute Mel Spectrograms and LFCC features; (5) the CNN model (via TFLite) processes Mel features while the GMM model processes LFCC features; (6) the Decision Engine aggregates both model outputs using weighted averaging and a 5-frame sliding window; and (7) the GUI displays the smoothed classification result with appropriate visual alerts.
+	
+	The architecture is event-driven and multi-threaded. The VoIP monitor runs in a daemon thread, the audio recorder runs in a separate daemon thread, and both inference engines support asynchronous background execution via dedicated worker threads. The GUI runs on the main thread and polls for results using a timer-based update mechanism. All inter-thread communication uses thread-safe queues and locks.
+	
+	\section{Architectural Design }
+	
+	\subsection{System Architecture Diagram}
+	\paragraph\ 
+	The system architecture follows a layered pipeline design with the following major components and their interactions:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{ui_screenshot/sysarch.png}
+		\caption{System architecture diagram}
+	\end{figure}
+	
+	\subsection{Use Case Diagram}
+	\paragraph\ 
+	The primary use case involves a single actor (the User) who launches the application. The system then performs the following use cases automatically:
+	\begin{enumerate}
+		\item \textbf{Monitor for VoIP Call}: System polls audio sessions and mic activity.
+		\item \textbf{Capture Call Audio}: Upon call detection, loopback recording begins.
+		\item \textbf{Classify Audio}: Dual-model inference pipeline processes each audio frame.
+		\item \textbf{View Detection Results}: User observes real-time classification on the GUI.
+		\item \textbf{Receive AI Alert}: System notifies user when AI-generated voice is detected.
+		\item \textbf{Check Community Blocklist}: (Optional) System queries cloud database for flagged numbers.
+	\end{enumerate}
+	
+	\subsection{Sequence Diagram}
+	\paragraph\ 
+	The runtime sequence for a single classification cycle is:
+	\begin{enumerate}
+		\item VoIPMonitor detects call $\rightarrow$ triggers \texttt{on\_call\_start()} callback
+		\item AudioRecorder begins loopback capture in background thread
+		\item AudioRecorder places 3-second mono frame into queue
+		\item Main loop retrieves frame, checks silence ratio ($<$40\% required)
+		\item Frame resampled 48 kHz $\rightarrow$ 16 kHz, trimmed/padded to 2.5s, RMS normalized
+		\item TFLiteVoiceClassifier extracts Mel Spectrogram and runs CNN inference $\rightarrow$ CNN probability
+		\item GMMVoiceClassifier extracts LFCC and scores against GMMs $\rightarrow$ GMM probability
+		\item DecisionEngine computes ensemble: $0.6 \times P_{CNN} + 0.4 \times P_{GMM}$
+		\item DecisionEngine updates 5-frame buffer, computes smoothed average
+		\item GUI updates status label, confidence bar, waveform animation, and buffer indicator
+		\item If average $\geq$ 0.70 and first detection $\rightarrow$ warning notification displayed
+	\end{enumerate}
+	
+	\section{Dataset identified}
+	\paragraph\ 
+	The training dataset is composed of a balanced collection of human and AI-generated speech samples, totalling approximately 32,000 audio clips. The dataset is assembled from multiple sources to ensure diversity and robustness:
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\textbf{Class} & \textbf{Source} & \textbf{Samples} & \textbf{Description} \\
+				\hline
+				Human & LibriSpeech & 5,280 & Clean read English speech \\
+				\hline
+				Human & Custom WhatsApp & 10,720 & Real VoIP call recordings \\
+				\hline
+				AI & ASVspoof 2021 LA/DF & 5,280 & Multiple TTS/VC engines \\
+				\hline
+				AI & Custom AI Clones & 10,720 & Various TTS systems \\
+				\hline
+				\multicolumn{2}{|c|}{\textbf{Total}} & \textbf{32,000} & \textbf{Balanced (16,000 per class)} \\
+				\hline
+			\end{tabular}
+			\caption{Training dataset composition}
+		\end{center}
+	\end{table}
+	
+	All training samples are preprocessed with 100\% Opus codec augmentation to simulate real VoIP conditions. Codec bitrates are randomly selected from 16k, 24k, 32k, and 48k kbps to match the compression profiles of popular VoIP platforms. Additional augmentations include background noise injection (SNR 5--20 dB), packet loss simulation (2\% loss rate), time shifting ($\pm$100 ms), pitch shifting ($\pm$2 semitones), and time stretching (0.9--1.1$\times$). All audio samples are normalized to a target RMS level of $-$20 dB to ensure consistent input levels.
+	
+	\section{Proposed Methodology/Algorithms}
+	
+	\subsection{Mel Spectrogram Feature Extraction}
+	\paragraph\ 
+	Mel Spectrograms are computed from each 2.5-second audio window to serve as input to the CNN classifier. The extraction process follows these steps:
+	
+	\begin{enumerate}
+		\item Compute the Short-Time Fourier Transform (STFT) with $N_{FFT} = 512$, hop length = 160 samples (10 ms), and window length = 400 samples (25 ms).
+		\item Apply a 60-band Mel filterbank spanning 0 Hz to 8,000 Hz (Nyquist frequency for 16 kHz audio).
+		\item Convert to log-power scale using:
+	\end{enumerate}
+	
+	\begin{equation}
+		S_{dB} = 10 \cdot \log_{10}\left(\frac{S_{mel}}{S_{ref}} + \epsilon\right)
+	\end{equation}
+	
+	where $S_{ref}$ is the maximum value and $\epsilon = 10^{-10}$ prevents numerical underflow. The output is trimmed or padded to a fixed 79 time frames and normalized to $[0, 1]$ range, yielding a feature tensor of shape $(60 \times 79 \times 1)$.
+	
+	\subsection{LFCC Feature Extraction}
+	\paragraph\ 
+	Linear Frequency Cepstral Coefficients (LFCC) are extracted for the GMM classifier. Unlike Mel-scale features, LFCC uses linearly spaced filterbanks, which preserves details in the high-frequency range where AI-generated speech artifacts are most prominent. The extraction steps are:
+	
+	\begin{enumerate}
+		\item Compute the STFT with $N_{FFT} = 2048$ and hop length = 512 samples.
+		\item Apply an 80-filter linear filterbank uniformly spaced between 80 Hz and 7,500 Hz.
+		\item Apply logarithmic compression: $\log(E + \epsilon)$ where $E$ is the filter energy.
+		\item Apply the Type-II Discrete Cosine Transform (DCT) to decorrelate the filter outputs:
+	\end{enumerate}
+	
+	\begin{equation}
+		c_k = \sqrt{\frac{2}{N}} \sum_{n=0}^{N-1} \log(E_n) \cos\left[\frac{\pi k (2n+1)}{2N}\right], \quad k = 0, 1, \ldots, 19
+	\end{equation}
+	
+	The first 20 cepstral coefficients are retained, yielding a feature matrix of shape $(20 \times T)$ per audio frame, where $T$ is the number of time frames.
+	
+	\subsection{Lightweight CNN Architecture}
+	\paragraph\ 
+	The CNN is based on a MobileNet-inspired architecture using depthwise separable convolutions for parameter efficiency. The complete architecture is:
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\textbf{Layer} & \textbf{Type} & \textbf{Output Shape} & \textbf{Parameters} \\
+				\hline
+				Input & -- & $(60, 79, 1)$ & 0 \\
+				\hline
+				Block 1 & Conv2D + BN + ReLU6 & $(30, 40, 16)$ & 160 \\
+				\hline
+				Block 2 & DW-Sep Conv + Pool & $(15, 20, 32)$ & 688 \\
+				\hline
+				Block 3 & DW-Sep Conv + Pool & $(7, 10, 64)$ & 2,400 \\
+				\hline
+				Block 4 & DW-Sep Conv + Pool & $(3, 5, 128)$ & 9,024 \\
+				\hline
+				GAP & GlobalAvgPool2D & $(128)$ & 0 \\
+				\hline
+				Dense & Dense + ReLU6 + Dropout & $(64)$ & 8,256 \\
+				\hline
+				Output & Dense + Sigmoid & $(1)$ & 65 \\
+				\hline
+				\multicolumn{3}{|c|}{\textbf{Total}} & \textbf{$\sim$13,765} \\
+				\hline
+			\end{tabular}
+			\caption{CNN model architecture}
+		\end{center}
+	\end{table}
+	
+	Each depthwise separable block consists of a depthwise convolution ($3 \times 3$ kernel, one filter per input channel) followed by a pointwise convolution ($1 \times 1$ kernel) that combines channels. This reduces parameters by approximately 8--9$\times$ compared to standard convolutions. ReLU6 activation ($\min(\max(x, 0), 6)$) is used throughout to facilitate accurate int8 quantization for TFLite deployment.
+	
+	The model is compiled with the Adam optimizer (learning rate = $10^{-3}$), binary cross-entropy loss with label smoothing of 0.1, and metrics including accuracy, precision, recall, and AUC.
+	
+	\subsection{Gaussian Mixture Model}
+	\paragraph\ 
+	Two independent GMMs are trained using the Expectation-Maximization (EM) algorithm via scikit-learn:
+	\begin{itemize}
+		\item $\text{GMM}_{human}$: Models the LFCC distribution of human speech.
+		\item $\text{GMM}_{ai}$: Models the LFCC distribution of AI-generated speech.
+	\end{itemize}
+	
+	During inference, the log-likelihood of the test LFCC features under each model is computed, and the difference is mapped to a probability using the sigmoid function:
+	
+	\begin{equation}
+		P_{AI} = \frac{1}{1 + e^{-\alpha \cdot (\mathcal{L}_{AI} - \mathcal{L}_{human})}}
+	\end{equation}
+	
+	where $\mathcal{L}_{AI}$ and $\mathcal{L}_{human}$ are the mean log-likelihoods per frame from each GMM, and $\alpha = 0.5$ is a scaling factor that controls sensitivity.
+	
+	\subsection{Ensemble Decision Engine}
+	\paragraph\ 
+	The hybrid decision engine combines CNN and GMM outputs using weighted averaging:
+	
+	\begin{equation}
+		S_{ensemble} = w_{CNN} \cdot P_{CNN} + w_{GMM} \cdot P_{GMM}
+	\end{equation}
+	
+	where $w_{CNN} = 0.60$ and $w_{GMM} = 0.40$. A sliding window buffer of size 5 stores recent ensemble scores, and the final classification is based on the buffer average:
+	
+	\begin{equation}
+		\bar{S} = \frac{1}{|B|} \sum_{i \in B} S_{ensemble}^{(i)}
+	\end{equation}
+	
+	Classification thresholds: $\bar{S} < 0.40 \rightarrow$ Human; $0.40 \leq \bar{S} < 0.70 \rightarrow$ Suspicious; $\bar{S} \geq 0.70 \rightarrow$ AI Generated.
+	
+	\subsection{Training Configuration}
+	\paragraph\ 
+	The CNN is trained with the following configuration:
+	\begin{itemize}
+		\item Batch size: 32
+		\item Maximum epochs: 50
+		\item Early stopping: Patience of 10 epochs on validation loss
+		\item Learning rate reduction: Factor 0.5 with patience of 5 epochs (minimum $10^{-5}$)
+		\item Label smoothing: 0.1 (targets become 0.05/0.95 instead of 0/1)
+		\item Callbacks: ModelCheckpoint, EarlyStopping, ReduceLROnPlateau, TensorBoard, CSVLogger, custom EER callback
+	\end{itemize}
+	
+	
+	\section{User Interface Design}
+	\paragraph\
+	The user interface is designed as a premium dark-mode desktop application built with the \texttt{customtkinter} framework. The interface is divided into the following sections:
+	
+	\begin{enumerate}
+		\item \textbf{Header}: Displays the application title ``Das-Detects'' and a theme toggle button for switching between dark and light modes.
+		\item \textbf{Call Status Banner}: A horizontal banner that indicates whether a VoIP call is currently detected. Displays the detected application name (e.g., ``WhatsApp call detected'').
+		\item \textbf{Waveform Visualization}: A canvas-based animated visualization consisting of 50 vertical bars that oscillate in a sine-wave pattern during active calls. The animation fades in when a call starts and fades out when it ends.
+		\item \textbf{Classification Display}: A large central label showing the current classification (``HUMAN'', ``SUSPICIOUS'', or ``AI GENERATED'') with smooth color transitions: green for human, yellow for suspicious, and red for AI-generated.
+		\item \textbf{Confidence Indicator}: A numerical percentage display (0--100\%) with animated smooth transitions and color-coded text.
+		\item \textbf{Frame Buffer Indicator}: Five small rectangular boxes representing the sliding window buffer, each color-coded based on the individual frame's classification score.
+		\item \textbf{Threat Warning Banner}: A red alert banner that appears when the current caller's number has been flagged in the community database, providing an additional layer of social intelligence.
+	\end{enumerate}
+	
+	Animation is achieved through a timer-based update loop running at approximately 30 fps, with cubic ease-in-out interpolation for smooth color and value transitions.
+	
+	The following screenshots illustrate the user interface in various states:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{"ui_screenshot/WhatsApp Image 2026-03-12 at 2.34.27 PM".jpeg}
+		\caption{Das-Detects UI -- Idle state before call detection}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{"ui_screenshot/WhatsApp Image 2026-03-12 at 2.35.07 PM".jpeg}
+		\caption{Das-Detects UI -- VoIP call detected and audio capture active}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{"ui_screenshot/WhatsApp Image 2026-03-12 at 2.35.21 PM".jpeg}
+		\caption{Das-Detects UI -- Classification result: Human voice detected}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{"ui_screenshot/WhatsApp Image 2026-03-12 at 2.35.37 PM".jpeg}
+		\caption{Das-Detects UI -- Classification result: Suspicious voice detected}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{"ui_screenshot/WhatsApp Image 2026-03-12 at 2.35.58 PM".jpeg}
+		\caption{Das-Detects UI -- Classification result: AI-generated voice warning}
+	\end{figure}
+	
+	
+	\section{Database Design}
+	\paragraph\
+	The system uses a Supabase-hosted PostgreSQL database for the optional community blocklist feature. The database schema is minimal, consisting of a single table:
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Column} & \textbf{Type} & \textbf{Description} \\
+				\hline
+				id & UUID & Primary key (auto-generated) \\
+				\hline
+				hashed\_number & VARCHAR(64) & SHA-256 hash of phone number \\
+				\hline
+				strike\_count & INTEGER & Number of AI reports \\
+				\hline
+				last\_reported & TIMESTAMP & Last report timestamp \\
+				\hline
+			\end{tabular}
+			\caption{Community blocklist database schema}
+		\end{center}
+	\end{table}
+	
+	\textbf{Privacy Design}: Phone numbers are never stored in plaintext. The caller ID is extracted from the VoIP application's UI via the \texttt{uiautomation} library, hashed with SHA-256 on the local device, and only the hash is transmitted to the server. This ensures that even if the database is compromised, actual phone numbers cannot be recovered.
+	
+	
+	
+	\section{Description of Implementation Strategies}
+	\paragraph\
+	The following key implementation strategies are employed:
+	
+	\subsection{Audio Capture via WASAPI Loopback}
+	The \texttt{soundcard} Python library is used to access the default speaker's loopback microphone, enabling capture of all audio output from the system at the native sample rate (48 kHz). The captured stereo audio is converted to mono by averaging channels.
+	
+	\begin{lstlisting}[language=Python, caption=Audio capture using soundcard loopback]
+import soundcard as sc
+speaker = sc.default_speaker()
+mic = sc.get_microphone(
+    id=speaker.name, include_loopback=True)
+with mic.recorder(samplerate=48000) as recorder:
+    data = recorder.record(numframes=144000)  # 3 seconds
+    mono = np.mean(data, axis=1)
+	\end{lstlisting}
+	
+	\subsection{VoIP Detection via pycaw}
+	The \texttt{pycaw} library provides access to Windows audio session information. Active audio sessions are enumerated and filtered for known VoIP process names with active audio state.
+	
+	\begin{lstlisting}[language=Python, caption=VoIP process detection]
+from pycaw.pycaw import AudioUtilities
+sessions = AudioUtilities.GetAllSessions()
+for s in sessions:
+    if s.State == 1:  # ACTIVE
+        proc = s.Process
+        if any(kw in proc.name().lower() 
+               for kw in ['whatsapp','zoom','teams']):
+            return True
+	\end{lstlisting}
+	
+	\subsection{TFLite Inference}
+	The trained CNN model is converted to TensorFlow Lite format with int8 quantization, reducing model size from several megabytes to under 400 KB. Inference is performed using the TFLite interpreter:
+	
+	\begin{lstlisting}[language=Python, caption=TFLite model inference]
+import tensorflow as tf
+interpreter = tf.lite.Interpreter(
+    model_path='voice_classifier_v4.tflite')
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+interpreter.set_tensor(
+    input_details[0]['index'], mel_features)
+interpreter.invoke()
+output = interpreter.get_tensor(
+    output_details[0]['index'])
+probability = float(output[0][0])
+	\end{lstlisting}
+	
+	\subsection{RMS Normalization}
+	All audio frames are normalized to a consistent RMS level of $-$20 dB to eliminate volume variations across different VoIP platforms and hardware configurations:
+	
+	\begin{lstlisting}[language=Python, caption=RMS normalization to -20 dB]
+audio = audio - np.mean(audio)  # DC offset removal
+rms = np.sqrt(np.mean(audio ** 2))
+target_rms = 10 ** (-20 / 20)  # = 0.1
+audio = audio * (target_rms / rms)
+audio = np.clip(audio, -1.0, 1.0)
+	\end{lstlisting}
+	
+	\section{Module Division}
+	\paragraph\ 
+	The project is divided into the following modules, with assignments to team members:
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|p{6cm}|c|}
+				\hline
+				\textbf{Module} & \textbf{Description} & \textbf{Assigned To} \\
+				\hline
+				VoIP Monitor & Call detection via WASAPI sessions and microphone monitoring & Abraham Thomas \\
+				\hline
+				Audio Capture & WASAPI loopback recording and frame management & Abraham Thomas \\
+				\hline
+				Feature Extraction & Mel Spectrogram and LFCC computation & Amrith Saras \\
+				\hline
+				CNN Model & Lightweight CNN design, training, and TFLite conversion & Amrith Saras \\
+				\hline
+				GMM Model & GMM training on LFCC features and inference pipeline & Annabel Marianne \\
+				\hline
+				Decision Engine & Ensemble aggregation with sliding window & Annabel Marianne \\
+				\hline
+				User Interface & GUI design, animations, and real-time display & Ayyappadas S \\
+				\hline
+				Cloud Integration & Supabase blocklist and caller ID extraction & Ayyappadas S \\
+				\hline
+			\end{tabular}
+			\caption{Module division and team member assignments}
+		\end{center}
+	\end{table}
+
+	\section{Work Schedule - Gantt Chart}
+	\paragraph\ 
+	The project work is scheduled across the academic year 2025--2026 as follows:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{ui_screenshot/Untitled.png}
+		\caption{Work schedule -- Gantt chart}
+	\end{figure}
+	
+
+	
+	\chapter{Results and Discussions}
+	
+	
+	\section{Overview}
+	\paragraph\
+	The Das-Detects system was evaluated through a combination of standard machine learning metrics on held-out test data and real-world testing on live VoIP call recordings. The CNN model trained on the Mel Spectrogram features with 100\% Opus codec augmentation and RMS normalization at $-$20 dB (designated model v4) achieved the best overall performance. The GMM model trained on LFCC features provided complementary classification that improved robustness when combined through the ensemble decision engine. The results demonstrate that lightweight on-device detection of AI-generated voices is feasible with high accuracy, even under the challenging conditions of VoIP codec degradation.
+	
+	
+	\section{Testing}
+	\paragraph\
+	
+	The system was tested under three conditions: (a) controlled test set evaluation using held-out samples from the training data distribution, (b) real-world VoIP testing using actual WhatsApp call recordings captured through WASAPI loopback, and (c) end-to-end integration testing with the full pipeline including call detection, audio capture, feature extraction, dual-model inference, and GUI display.
+	
+	For the controlled evaluation, a stratified 80/10/10 train/validation/test split was used. The test set contained unseen speakers and TTS engines not present in the training data to assess generalization. For real-world VoIP testing, 61 human speech clips and 55 AI-generated clips were recorded through actual WhatsApp calls to evaluate performance under genuine VoIP conditions.
+	
+	
+	\section{Quantitative Results}
+	\paragraph\
+	The following tables summarize the quantitative performance of the system:
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Metric} & \textbf{Value} \\
+				\hline
+				Test Set Accuracy & 98.6\% \\
+				\hline
+				Equal Error Rate (EER) & 1.75\% \\
+				\hline
+				Precision & 98.9\% \\
+				\hline
+				Recall & 98.4\% \\
+				\hline
+				F1 Score & 98.6\% \\
+				\hline
+				AUC-ROC & 0.997 \\
+				\hline
+			\end{tabular}
+			\caption{CNN model (v4 Mel) performance on held-out test set}
+		\end{center}
+	\end{table}
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\textbf{Test Condition} & \textbf{Total Clips} & \textbf{Correct} & \textbf{Accuracy} \\
+				\hline
+				Human (WhatsApp VoIP) & 61 & 56 & 91.8\% \\
+				\hline
+				AI-Generated (WhatsApp VoIP) & 55 & 55 & 100.0\% \\
+				\hline
+				\textbf{Combined} & \textbf{116} & \textbf{111} & \textbf{95.7\%} \\
+				\hline
+			\end{tabular}
+			\caption{Real-world VoIP call detection results}
+		\end{center}
+	\end{table}
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Component} & \textbf{Inference Time} & \textbf{Model Size} \\
+				\hline
+				CNN (TFLite) & 30--50 ms & 87--400 KB \\
+				\hline
+				GMM (sklearn) & 15--25 ms & $\sim$2 MB \\
+				\hline
+				Total Pipeline & $<$100 ms & -- \\
+				\hline
+			\end{tabular}
+			\caption{Inference performance metrics}
+		\end{center}
+	\end{table}
+	
+	The 5 misclassified human samples in the real-world VoIP test were attributed to borderline cases involving whispering, heavy background noise, and extremely low bitrate compression. Notably, when the 3-tier threshold system is applied (classifying scores between 0.40 and 0.70 as ``Suspicious'' rather than definitive labels), only 3 of the 61 human clips were classified as definitively AI-generated, while the remaining 2 fell into the ``Suspicious'' range.
+	
+	
+	\section{Graphical Analysis}
+	\paragraph\
+	The training progression of the CNN model shows rapid convergence within the first 10 epochs, with validation accuracy stabilizing above 98\% by epoch 15. The learning rate scheduler reduced the rate twice during training (at epochs 18 and 25), and early stopping terminated training at epoch 35 based on validation loss plateau.
+	
+	The ensemble approach using the 5-frame sliding window significantly reduces classification noise compared to per-frame predictions. Individual frame predictions exhibit variance of approximately $\pm$15\% around the true class center, while the smoothed ensemble output reduces this variance to $\pm$5\%, resulting in more stable and reliable real-time classification.
+	
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Approach} & \textbf{VoIP Human Acc.} & \textbf{VoIP AI Acc.} \\
+				\hline
+				CNN Only (per-frame) & 85.2\% & 96.4\% \\
+				\hline
+				GMM Only (per-frame) & 78.7\% & 89.1\% \\
+				\hline
+				CNN + Sliding Window & 90.2\% & 98.2\% \\
+				\hline
+				Ensemble (CNN+GMM+Window) & \textbf{91.8\%} & \textbf{100.0\%} \\
+				\hline
+			\end{tabular}
+			\caption{Comparison of detection approaches on real-world VoIP data}
+		\end{center}
+	\end{table}
+	
+	The results demonstrate that the ensemble approach consistently outperforms individual models, particularly in the more challenging human-speech classification under VoIP conditions. The GMM's complementary features help disambiguate cases where the CNN alone is uncertain, while the sliding window buffer effectively filters transient misclassifications.
+	
+	
+	\section{Discussion}
+	\paragraph\
+	The system achieves strong performance on both controlled test data (98.6\% accuracy, 1.75\% EER) and real-world VoIP conditions (95.7\% combined accuracy). The most significant finding is the 100\% detection rate for AI-generated voices in real VoIP calls, indicating that synthetic speech artifacts survive VoIP codec compression and remain detectable by the system.
+	
+	The slightly lower accuracy on human speech (91.8\%) compared to AI speech detection is attributable to the domain gap between training data and real-world VoIP conditions. While the training data includes extensive Opus codec augmentation, the actual VoIP pipeline introduces additional variabilities such as acoustic echo cancellation, automatic gain control, and adaptive bitrate switching that are not fully captured in augmentation. The 3-tier classification system (Human/Suspicious/AI) mitigates this by providing a buffer zone for uncertain predictions rather than forcing binary decisions.
+	
+	The lightweight model architecture ($\sim$13,765 parameters) and TFLite deployment (under 400 KB) demonstrate that effective deepfake detection does not require the large transformer-based models commonly used in the literature. The depthwise separable convolution design reduces computational cost by 8--9$\times$ compared to standard convolutions while maintaining accuracy, enabling real-time performance on consumer hardware without GPU acceleration.
+	
+	\chapter{Conclusion}
+	
+	
+	\section{Conclusion}
+	\paragraph\
+	This project successfully designed, implemented, and evaluated a real-time lightweight system for detecting AI-generated voices during active VoIP calls. The system operates entirely on the user's device, ensuring privacy and eliminating dependency on cloud infrastructure. By combining a lightweight CNN trained on Mel Spectrogram features with a GMM trained on LFCC features through an ensemble decision engine, the system achieves robust detection performance even under the challenging acoustic conditions introduced by VoIP codecs.
+	
+	The CNN model, built using depthwise separable convolutions inspired by the MobileNet architecture, achieves 98.6\% accuracy on held-out test data and 95.7\% accuracy on real-world WhatsApp VoIP recordings, with a 100\% detection rate for AI-generated voices in live call conditions. The entire model is deployable as a TFLite file under 400 KB, with inference completing in under 50 ms per 2.5-second audio window on consumer hardware without GPU acceleration. The 5-frame sliding window decision engine effectively smooths per-frame prediction noise, resulting in stable and reliable classification output suitable for real-time user-facing applications.
+	
+	The project demonstrates that effective deepfake voice detection does not require large-scale cloud-based models. A carefully designed lightweight architecture with appropriate training data augmentation (particularly VoIP codec simulation) and a hybrid ensemble approach can achieve practical detection performance in a fully on-device deployment. The system addresses a real and growing cybersecurity threat, providing an accessible tool for protecting users from AI-powered voice fraud.
+	
+	
+	\section{Future Scope}
+	\paragraph\
+	Several directions for future work can extend and improve the system:
+	\begin{enumerate}
+		\item \textbf{Android Deployment}: The TFLite model can be deployed on Android smartphones using the TensorFlow Lite runtime, enabling detection during mobile VoIP calls. The Android AudioRecord API provides access to call audio on supported devices.
+		\item \textbf{Continual Learning}: Implementing a mechanism to update the model with newly encountered AI voice samples would help the system adapt to evolving TTS technologies without requiring full retraining.
+		\item \textbf{Cross-Platform Support}: Extending the audio capture module to support macOS (via CoreAudio) and Linux (via PulseAudio/PipeWire) would broaden the system's accessibility.
+		\item \textbf{Multi-Language Support}: The current dataset is predominantly English. Training on multilingual datasets would improve detection accuracy for non-English VoIP calls.
+		\item \textbf{Advanced Ensemble Methods}: Exploring learned fusion weights (e.g., attention-based aggregation of CNN and GMM scores) could further improve ensemble performance over the current fixed-weight approach.
+	\end{enumerate}
+
+	\clearpage
+	\renewcommand{\bibname}{Bibliography} 
+	\addcontentsline{toc}{chapter}{Bibliography}
+	
+	\begin{thebibliography}{99}
+	\bibitem{wang2020asvspoof} X. Wang, J. Yamagishi, M. Todisco, H. Delgado, A. Nautsch, N. Evans, M. Sahidullah, V. Vestman, T. Kinnunen, K. A. Lee, L. Juvela, and P. Alku, ``ASVspoof 2019: A Large-Scale Public Database of Synthesized, Converted and Replayed Speech,'' \textit{Computer Speech and Language}, vol. 64, pp. 101--114, 2020.
+	
+	\bibitem{yi2022asvspoof} Z. Yi, W. Fu, D. Cai, K. Chen, and S. Li, ``ASVspoof 2021: Towards Spoofed and Deepfake Speech Detection in the Wild,'' in \textit{Proc. 2022 IEEE Spoken Language Technology Workshop (SLT)}, Doha, Qatar, 2023, pp. 896--903.
+	
+	\bibitem{howard2017mobilenets} A. G. Howard, M. Zhu, B. Chen, D. Kalenichenko, W. Wang, T. Weyand, M. Andreetto, and H. Adam, ``MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications,'' \textit{arXiv preprint arXiv:1704.04861}, 2017.
+	
+	\bibitem{sahidullah2015lfcc} M. Sahidullah and T. Kinnunen, ``A Comparison of Features for Synthetic Speech Detection,'' in \textit{Proc. INTERSPEECH}, Dresden, Germany, 2015, pp. 2087--2091.
+	
+	\bibitem{reynolds2009gmm} D. A. Reynolds, ``Gaussian Mixture Models,'' \textit{Encyclopedia of Biometrics}, pp. 659--663, Springer, 2009.
+	
+	\bibitem{tak2021endtoend} H. Tak, J. Patino, M. Todisco, A. Nautsch, N. Evans, and A. Larcher, ``End-to-End Anti-Spoofing with RawNet2,'' in \textit{Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, Toronto, Canada, 2021, pp. 6369--6373.
+	
+	\bibitem{muller2022deepfake} N. M. M\"{u}ller, P. Czempin, F. Diekmann, A. Becker, and K. B\"{o}ttinger, ``Does Audio Deepfake Detection Generalize?,'' in \textit{Proc. INTERSPEECH}, Incheon, Korea, 2022, pp. 2783--2787.
+	
+	\bibitem{david2023tflite} A. David, P. Warden, and D. Situnayake, ``TensorFlow Lite for Microcontrollers: Enabling On-Device Machine Learning,'' in \textit{TinyML Summit}, San Jose, CA, 2023.
+	
+	\bibitem{librosa2015} B. McFee, C. Raffel, D. Liang, D. P. W. Ellis, M. McVicar, E. Battenberg, and O. Nieto, ``librosa: Audio and Music Signal Analysis in Python,'' in \textit{Proc. 14th Python in Science Conference}, 2015, pp. 18--24.
+	
+	\bibitem{chen2020generalization} T. Chen, A. Kumar, P. Nagarsheth, G. Sivaraman, and E. Khoury, ``Generalization of Audio Deepfake Detection,'' in \textit{Proc. Speaker Odyssey}, Tokyo, Japan, 2020, pp. 132--137.
+	
+	\end{thebibliography}
+	
+
+    \thispagestyle{empty}
+	\addcontentsline{toc}{chapter}{Appendix A: Presentation}
+	\chapter*{}
+	\paragraph\ 
+	\vspace{75mm}
+	\begin{center}
+		\textbf{\huge{Appendix A: }}
+		\textbf{\huge{Presentation}}
+	\end{center}
+	%\includepdf[pages=-]{2.pdf}
+	\clearpage
+	\clearpage
+	 \newpage
+	\cleardoublepage
+	\thispagestyle{plain}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/1.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/2.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/3.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/4.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/5.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/6.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/7.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/8.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/9.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/10.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/11.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/12.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/13.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/14.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/15.png}
+	\end{figure}
+	\clearpage
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{ui_screenshot/16.png}
+	\end{figure}
+	\clearpage
+
+	
+	\thispagestyle{empty}
+	\addcontentsline{toc}{chapter}{Appendix B: Vision, Mission, Programme Outcomes and Course Outcomes}
+	\chapter*{}
+	\paragraph\ 
+	\vspace{75mm}
+	\begin{center}
+		\textbf{\huge{Appendix B: }}
+		\textbf{\huge{Vision, Mission, Programme Outcomes and Course Outcomes}}
+	\end{center}
+	%\includepdf[pages=-]{2.pdf}
+	\clearpage
+	\clearpage
+	 \newpage
+	\cleardoublepage
+	\thispagestyle{plain}
+	\begin{center}
+			\textbf {DEPARTMENT OF COMPUTER SCIENCE \&\ ENGINEERING}\\
+			\small \textbf{RAJAGIRI SCHOOL OF ENGINEERING \&\ TECHNOLOGY (AUTONOMOUS)}\\
+			\small \textbf{RAJAGIRI VALLEY, KAKKANAD, KOCHI, 682039}\\
+			\small \bfseries{(Affiliated to APJ Abdul Kalam Technological University)}\\[0.5cm]
+			\begin{figure}[htbp]
+					\centering
+			%\includegraphics[scale=0.40]{logo (1).jpg}
+					\includegraphics[width=8.0cm]{logo (1).jpg}\\[0.5cm]
+				\end{figure}
+		\large \bfseries{Vision, Mission, Programme Outcomes and Course Outcomes}
+	\end{center}
+		%\pagenumbering{roman}
+		%\setcounter{page}{2}
+	%\addcontentsline{toc}{chapter}{Vision, Mission, POs, PSOs and COs}
+	\vspace{1.5cm}
+	\renewcommand{\baselinestretch}{1.2}\normalsize
+	
+	\textbf{Institute Vision} \\
+	To evolve into a premier technological institution, moulding eminent professionals with creative minds, innovative ideas and sound practical skill, and to shape a future where technology works for the enrichment of mankind. \\ \\
+	
+	\textbf{Institute Mission} \\
+	To impart state-of-the-art knowledge to individuals in various technological disciplines and to inculcate in them a high degree of social consciousness and human values, thereby enabling them to face the challenges of life with courage and conviction. \\ \\
+	
+	\textbf{Department Vision} \\
+	To become a centre of excellence in Computer Science and Engineering, moulding professionals catering to the research and professional needs of national and international organizations. \\ \\
+	
+	\textbf{Department Mission} \\
+	To inspire and nurture students, with up-to-date knowledge in Computer Science and Engineering, ethics, team spirit, leadership abilities, innovation and creativity to come out with solutions meeting societal needs. \\ \\
+	
+	\textbf{Programme Outcomes (PO)} \\
+	Engineering Graduates will be able to: \\ \\
+	\textbf{PO1: Engineering Knowledge}: Apply knowledge of mathematics, natural science, computing, engineering fundamentals and an engineering specialization as specified in WK1 to WK4 respectively to develop to the solution of complex engineering problems.  \\ \\
+	\textbf{PO2: Problem Analysis}: Identify, formulate, review research literature and analyze complex engineering problems reaching substantiated conclusions with consideration for sustainable development. \\ \\
+	\textbf{PO3: Design/Development of Solutions}: Design creative solutions for complex engineering problems and design/develop systems/components/processes to meet identified needs with consideration for the public health and safety, whole-life cost, net zero carbon, culture, society and environment as required. \\ \\
+	\textbf{PO4: Conduct Investigations of Complex Problems}: Conduct investigations of complex engineering problems using research-based knowledge including design of experiments, modelling, analysis and interpretation of data to provide valid conclusions. \\ \\
+	\textbf{PO5: Engineering Tool Usage}: Create, select and apply appropriate techniques, resources and modern engineering and IT tools, including prediction and modelling recognizing their limitations to solve complex engineering problems. \\ \\
+	\textbf{PO6: The Engineer and The World}: Analyze and evaluate societal and environmental aspects while solving complex engineering problems for its impact on sustainability with reference to economy, health, safety, legal framework, culture and environment. \\ \\
+	\textbf{PO7: Ethics}: Apply ethical principles and commit to professional ethics, human values, diversity and inclusion; adhere to national and international laws.  \\ \\
+	\textbf{PO8: Individual and Collaborative Team work}: Function effectively as an individual, and as a member or leader in diverse/multi-disciplinary teams.  \\ \\
+	\textbf{PO9: Communication}:Communicate effectively and inclusively within the engineering community and society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations considering cultural, language, and learning differences. \\ \\
+	\textbf{PO10: Project Management and Finance}: Apply knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, and to manage projects and in multidisciplinary environments. \\ \\
+	\textbf{PO11: Life-Long Learning}: Recognize the need for, and have the preparation and ability for i) independent and life-long learning ii) adaptability to new and emerging technologies and iii) critical thinking in the broadest context of technological change.  \\ \\
+
+    %\newpage
+	\textbf{Programme Specific Outcomes (PSO)} \\
+	A graduate of the Computer Science and Engineering Program will demonstrate: \\ \\
+	\textbf{PSO1: Computer Science Specific Skills} \\
+	The ability to identify, analyze and design solutions for complex engineering problems in multidisciplinary areas by understanding the core principles and concepts of computer science and thereby engage in national grand challenges. \\ \\
+	\textbf{PSO2: Programming and Software Development Skills} \\
+	The ability to acquire programming efficiency by designing algorithms and applying standard practices in software project development to deliver quality software products meeting the demands of the industry. \\ \\
+	\textbf{PSO3: Professional Skills} \\
+	The ability to apply the fundamentals of computer science in competitive research and to develop innovative products to meet the societal needs thereby evolving as an eminent researcher and entrepreneur. \\ \\
+    \clearpage
+
+    %\newpage
+	\textbf{Course Outcomes (CO)} \\
+	A graduate of the Computer Science and Engineering Program will demonstrate: \\ \\
+	\textbf{CO1} \\
+	Identify technically and economically feasible problems \\ \\
+	\textbf{CO2} \\
+Identify and survey the relevant literature for getting exposed to related solutions and get familiarized with software development processes. \\ \\
+	\textbf{CO3} \\
+	Perform requirement analysis, identify design methodologies and develop adaptable and
+reusable solutions of minimal complexity by using modern tools and advanced programming techniques. \\ \\
+\textbf{CO4} \\
+	Prepare technical report and deliver presentation. \\ \\
+    \textbf{CO5} \\
+	Apply engineering and management principles to achieve the goal of the project\\ \\
+    \clearpage
+	
+    \addcontentsline{toc}{chapter}{Appendix C: CO-PO-PSO Mapping}
+    \chapter*{}
+    \paragraph\ 
+    \vspace{75mm}
+    \begin{center}
+	   \textbf{\huge{Appendix C: }}
+       \textbf{\huge{CO-PO-PSO Mapping}}
+    \end{center}
+    \includepdf[pages={-}, pagecommand={}]{ui_screenshot/doc3.pdf}
+    \clearpage
+	
+	
+\end{document}
