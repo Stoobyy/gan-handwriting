@@ -6,3 +6,4 @@ pip_tmp/
 pip_cache/
 data/
 ~$*
+report/
