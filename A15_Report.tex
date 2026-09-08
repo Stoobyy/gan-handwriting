@@ -12,6 +12,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{hyperref}
 \usepackage{parskip}
 
@@ -338,12 +340,18 @@ project are drawn from several published works. Table~\ref{tab:literature} lists
 paper referenced in this report alongside the specific concept, formula, or design
 decision that was taken from it and applied in the implementation.
 
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|p{3.6cm}|p{9.5cm}|}
+\begin{center}
+    \begin{longtable}{|L{3.6cm}|L{9.5cm}|}
+        \caption{Mapping of research papers to the concepts and formulas derived from them}
+        \label{tab:literature} \\
             \hline
             \textbf{Research Paper} & \textbf{Concept / Formula Derived and Applied} \\
             \hline
+        \endfirsthead
+            \hline
+            \textbf{Research Paper} & \textbf{Concept / Formula Derived and Applied} \\
+            \hline
+        \endhead
             Goodfellow et al., \textit{Generative Adversarial Nets} \cite{goodfellow2014} &
             The minimax training objective (Equation~\ref{eq:minimax}), the derivation of
             the optimal Discriminator (Equation~\ref{eq:optimal-d}), and the definition of
@@ -386,11 +394,8 @@ decision that was taken from it and applied in the implementation.
             perceptual image quality, used to interpret the results in
             Section~\ref{sec:dynamics}. \\
             \hline
-        \end{tabular}
-        \caption{Mapping of research papers to the concepts and formulas derived from them}
-        \label{tab:literature}
-    \end{center}
-\end{table}
+    \end{longtable}
+\end{center}
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Dataset and Preprocessing}
@@ -498,7 +503,8 @@ extract features from fine detail to coarse structure in the opposite direction.
 
 \begin{table}[H]
     \begin{center}
-        \begin{tabular}{|c|l|c|}
+        \small
+        \begin{tabular}{|c|L{8.6cm}|c|}
             \hline
             \textbf{Layer} & \textbf{Operation} & \textbf{Output Shape} \\
             \hline
@@ -545,7 +551,8 @@ learned strided convolutions wherever possible.
 
 \begin{table}[H]
     \begin{center}
-        \begin{tabular}{|c|l|c|}
+        \small
+        \begin{tabular}{|c|L{8.6cm}|c|}
             \hline
             \textbf{Layer} & \textbf{Operation} & \textbf{Output Shape} \\
             \hline
@@ -892,7 +899,7 @@ training.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{outputs/samples/epoch_001.png}
-    \caption{Generated samples at Epoch 1: random noise with no clear digit structure}
+    \caption{Generated samples at Epoch 1: thick, blobby strokes, with many shapes still malformed}
     \label{fig:epoch1}
 \end{figure}
 
@@ -912,8 +919,9 @@ training.
 
 Comparing Figures~\ref{fig:epoch1}, \ref{fig:epoch25}, and \ref{fig:epoch50} in sequence
 shows the visible progression of the Generator's output over the course of training. At
-epoch 1, the output is essentially unstructured noise with faint suggestions of shape,
-reflecting the fact that the Generator has only just begun to be updated. By epoch 25,
+epoch 1, the Generator already produces thick, blobby pen-like strokes rather than pure
+noise, since a single epoch on MNIST covers 469 weight updates, but many of the shapes
+are malformed or ambiguous and the strokes are noticeably coarser than real digits. By epoch 25,
 most of the samples already resemble specific digits, although stroke edges remain
 somewhat soft and a handful of samples are ambiguous between two digit classes. By epoch
 50, the majority of the samples are clearly legible as specific digits, with sharper

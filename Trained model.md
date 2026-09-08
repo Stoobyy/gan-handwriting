@@ -4,7 +4,7 @@
 
 The trained model weights submitted for the project. This is the convolutional GAN, using transposed convolutions in the Generator and strided convolutions in the Discriminator, since this is the model that was actually trained to produce the submitted results, plots, and screenshots.
 
-Note: the project report and presentation explain a simpler fully-connected (MLP) architecture for clarity. The saved model below does not match that explanation layer for layer, since it is the convolutional implementation, not the fully-connected one. Keep this in mind if asked to load the model and walk through its architecture directly.
+Note: `A15_Report.tex` and `Presentation PPT/Presentation PPT.pptx` have both been updated to describe this convolutional architecture accurately, so the report, the slides, and the saved model now match layer for layer.
 
 ## Files
 
@@ -19,15 +19,15 @@ Both files are PyTorch state dictionaries saved with `torch.save(model.state_dic
 
 | Property | Value |
 |---|---|
-| Generator parameters | 1,961,286 |
-| Discriminator parameters | 660,229 |
+| Generator parameters | 1,935,808 |
+| Discriminator parameters | 659,457 |
 | Latent dimension | 100 |
 | Generator | Linear projection, reshaped to (256, 7, 7), then two ConvTranspose2d + BatchNorm + ReLU blocks, then a final Conv2d + Tanh |
 | Discriminator | Three Conv2d + BatchNorm + LeakyReLU blocks, flattened, then a Linear layer + Sigmoid |
 
 ## Produced by
 
-Trained by running `Source code.py` end to end:
+Trained by running `Source_code.py` end to end:
 
 | Setting | Value |
 |---|---|
@@ -67,4 +67,4 @@ with torch.no_grad():
     samples = G(noise)
 ```
 
-Note: `Source code.py` would need to be renamed to a valid Python module name (for example `source_code.py`) for the `import` line above to work as written, since filenames with spaces cannot be imported directly.
+Note: the file is already named `Source_code.py` (no spaces), so the `import` line above works as written.
