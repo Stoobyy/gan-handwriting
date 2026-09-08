@@ -40,8 +40,6 @@ Trained by running `Source_code.py` end to end:
 | Latent dimension | 100 |
 | Random seed | 42 |
 
-The full set of sample images and plots generated across training is in `Trained model/Results plots and screenshots/`, and these are the images that also appear in the report and presentation.
-
 ## Loading the model
 
 ```python
@@ -66,5 +64,3 @@ with torch.no_grad():
     noise = torch.randn(16, 100, device=device)
     samples = G(noise)
 ```
-
-Note: the file is already named `Source_code.py` (no spaces), so the `import` line above works as written.
